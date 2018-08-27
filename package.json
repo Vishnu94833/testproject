@@ -1,0 +1,13 @@
+{
+  "name": "",
+  "version": "",
+  "dependencies": {
+    "date-and-time": "^0.6.2",
+    "delay": "^3.1.0",
+    "lodash": "^4.17.10",
+    "node-stopwatch": "0.0.1",
+    "npm-delay": "^1.0.4",
+    "prompt": "^1.0.0",
+    "sleep": "^5.2.3"
+  }
+}
