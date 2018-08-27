@@ -32,8 +32,6 @@ module.exports={
           console.log("2  power of "+j+" is "+num);
       }
   },
-
-
   harmonic:function(name)
   {
     var n=name;
