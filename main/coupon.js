@@ -12,11 +12,11 @@ var read=readline.createInterface
 
 function coupon()
 {
-    read.question("enter the max value :",function(min)
+    read.question("enter the min value :",function(min)
         {
             read.question("enter the max value :",function(max)
         {
-            read.question("enter the max value :",function(num)
+            read.question("enter no of tokens :",function(num)
         {
            
             utility.coupon(min,max,num);

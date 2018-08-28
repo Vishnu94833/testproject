@@ -85,24 +85,24 @@ module.exports={
   },
  gambling:function(stake,goal,trials)
  {
-    var bets = 0;        // total number of bets made
-    var wins = 0;        // total number of games won
+    var bets = 0;        
+    var wins = 0;        
 
-    // repeat trials times
+    
     for ( t = 1; t < trials; t++) {
 
-        // do one gambler's ruin simulation
+       
         var cash = stake;
         while (cash > 0 && cash < goal) 
         {
             bets++;
             if (Math.random() < 0.5) 
-            cash++  ;   // win $1
+            cash++  ;  
             else                    
-             cash--;     // lose $1
+             cash--;     
         }
         if (cash == goal) 
-        wins++;                // did gambler go achieve desired goal?
+        wins++;                
     }
 
          console.log("wins "+wins+"of"+trials);
@@ -117,9 +117,9 @@ module.exports={
  coupon:function (min,max,num)
     {
         var arr=[];
-        for(var i=0;i<=num;i++)
+        for(i=0;i<=num;i++)
         {
-            arr.push(Math.floor(Math.random(min,max) * 100000));
+            arr.push(Math.floor(Math.random(min,max) * 100));
         }
         for(var i=0;i<=arr.length;i++)
         {
@@ -130,7 +130,7 @@ module.exports={
         }
         for (var j=0;j<arr.length;j++)
         {
-            console.log("distinct random numbers are: "+arr[i][j])
+            console.log("distinct random numbers are: "+arr[j])
         }
         
     },
@@ -142,7 +142,7 @@ module.exports={
     
      if (determinant > 0)
     {
-    // sqrt() function returns square root
+    
         root1 = (-b+Math.sqrt(determinant))/(2*a);
         root2 = (-b-Math.sqrt(determinant))/(2*a);
 
@@ -150,7 +150,7 @@ module.exports={
         console.log('root2 is'+root2);
     }
 
-    //condition for real and equal roots
+    
     else if (determinant == 0)
     {
         root1 = root2 = -b/(2*a);
@@ -158,7 +158,7 @@ module.exports={
         console.log("the roots are "+root1);
     }
 
-    // if roots are not real 
+   
     else
     {
         realPart = -b/(2*a);
@@ -190,43 +190,108 @@ module.exports={
      
      
  },
- stopwatch:function(i,d)
+ getCurrentTime:function()
  {
-     var starttime=0;
-     var stoptime=0;
-     var elapsedtime;
-     
-     if(i==1)
+     var d=new Date();
+     var n=d.getTime();
+     return n;
+ },
+ getElapsedTime:function(startTime,stopTime)
+ {
+     var elapsed=(stopTime-startTime)/1000;
+     return elapsed;
+ },
+
+ array:function(row)
+ {
+     var prompt=require('prompt-sync')();
+     var arr=new Array(row);
+     var coloumn=prompt('enter no of coloumns :');
+     for (i=0;i<row;i++)
      {
-         start();
-        
-         stop();
-         
-         elapse();
-         
+         arr[i]=new Array(coloumn);
+         for(j=0;j<coloumn;j++)
+         {
+             arr[i][j]=prompt('enter element.....=');
+         }
      }
-    
-   function start()
-   {
-       var d=new Date();
-        starttime=d.getMilliseconds();
-       console.log('start time is'+starttime)
-   }
-   function stop()
-   {
-       var d1=new Date();
-        stoptime=d1.getMilliseconds();
-       console.log('stop time is'+stoptime)
+     console.log(arr);
+ },
+ sumofthree:function(row)
+ {
+     var prompt=require('prompt-sync')();
+     var arr=new Array(row);
+     var arr1=new Array();
+     var count=0;
+     var res= '';
+     for(var i=0;i<row;i++)
+     {
+         arr[i]=prompt('enter elements......');
+     }
+     console.log(arr);
 
-   }
-   function elapse()
-   {
-     elapsedtime=stoptime-starttime;
-       console.log('elapse time is '+elapsedtime);
-   }
-   
+     for (var i=0; i<arr.length; i++)
+     {
+         
+         for (var j=i+1; j<arr.length; j++)
+         {
+             
+             for (var k=j+1; k<arr.length; k++)
+             {
+                 
+                 var res=Number(arr[i])+Number(arr[j])+Number(arr[k]) ;
+                 if (res== 0)
+                 {
+                    count++;
+                  arr1.push(arr[i]+' '+arr[j]+' '+arr[j])  
+                  
+                 }
+             }
+         }
+     }
+     function dup(arr)
+     {
+         var uniquearray=[];
+         for(var i=0;i<arr.length;i++)
+         {
+             if(uniquearray.indexOf(arr[i])==-1)
+             {
+                 uniquearray.push(arr[i]);
+             }
+         }
+         return uniquearray;
+     }
+    //  var distinct=new Set(arr1);
+    //  console.log('distinct triples '+[...distinct]);
+    //  console.log("total no of triplets ="+[...distinct].length);
+     
+     console.log(arr);
+     console.log(count)
+ },
+
+permutstring:function(str)
+{
+ var permutations = [];
+ permute(str,[]);
+ console.log(permutations);
+
+ function permute(str, arr) 
+ {
+     if (typeof (str) == 'string') 
+     str = str.split('');
+     if (str.length == 0) 
+     permutations.push(arr.join(''));
+     for (var i = 0; i < str.length; i++)
+      {
+         var x = str.splice(i, 1);
+         arr.push(x);
+         permute(str, arr);
+         arr.pop();
+         str.splice(i, 0, x);
+     }
  }
-
-
+ 
+ },
 
 }
+

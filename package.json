@@ -8,6 +8,7 @@
     "node-stopwatch": "0.0.1",
     "npm-delay": "^1.0.4",
     "prompt": "^1.0.0",
+    "prompt-sync": "^4.1.6",
     "sleep": "^5.2.3"
   }
 }
