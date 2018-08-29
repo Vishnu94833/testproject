@@ -12,8 +12,8 @@ var read=readline.createInterface
 
 function harmonic()
 {
-    read.question("enter the value :",function(name)
-        {utility.harmonic(name);
+    read.question("enter the value :",function(num)
+        {utility.harmonic(num);
         read.close();
 }
 );

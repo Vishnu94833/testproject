@@ -11,8 +11,8 @@ var read=readline.createInterface
 
 function leap()
 {
-    read.question("enter the year :",function(magic)
-        {utility.leap(magic);
+    read.question("enter the year :",function(year)
+        {utility.leap(year);
         read.close();
 }
 );

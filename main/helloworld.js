@@ -11,9 +11,9 @@ var read=readline.createInterface
 
 function hello()
 {
-    read.question("Enter the user name:",function(world)
+    read.question("Enter the user name:",function(username)
     {
-utility.hello(world);
+utility.hello(username);
 read.close();
     });
 }

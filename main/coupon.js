@@ -16,13 +16,12 @@ function coupon()
         {
             read.question("enter the max value :",function(max)
         {
-            read.question("enter no of tokens :",function(num)
-        {
+        
            
-            utility.coupon(min,max,num);
+            utility.coupon(min,max);
         read.close();
 });
         });
-    });
+   
 }
 coupon();

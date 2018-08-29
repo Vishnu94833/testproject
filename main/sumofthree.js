@@ -3,7 +3,7 @@ var utility=require('/home/abc/VSC code/VishnuProjects/utility/utility.js');
 
 function sumofthree()
 {
-    var row=prompt('enter no of rows ');
+    var row=prompt('enter no of elements ');
     utility.sumofthree(row);
     
 }
