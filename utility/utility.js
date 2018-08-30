@@ -3,18 +3,20 @@ module.exports={
 
     /**
      * @description program to print hello userinput,hoe are you?
+     * @param username
      */
 
 
   hello:function(username)
   {
-      if(username.length>3)
+      if((username.length>3) && (username>='a')||(username>='A'))
       console.log("Hello "+username+",How are you?");// prints the userinput inplace of world
       else
       console.log('enter the valid name')
   },
          /**
      * @description condition 1 to check whether its a leapyear or not 
+     * @param year
      */
   leap:function(year)
   {
@@ -31,6 +33,7 @@ module.exports={
   },
          /**
      * @description program for power of 2 till m values
+     * @param root
      */
   power:function(root)
   {
@@ -46,6 +49,7 @@ module.exports={
 
       /**
      * @description program to find nth harmonic value and print
+     * @param num
      */
   harmonic:function(num)
   {
@@ -62,6 +66,7 @@ module.exports={
   },
         /**
        * @description program to find prime factors of a number
+       * @param num
        */
   prime:function(num)
   {
@@ -81,6 +86,7 @@ module.exports={
         /**
        * @description program to find heads and tails of cointoss and find percentage 
        * of heads and tails
+       * @param userinput
        */
   cointoss:function(userinput)
   {
@@ -109,6 +115,9 @@ module.exports={
   },
        /**
        * @description program to find winpercent and losspercent of a gambler
+       * @param stake
+       * @param goal
+       * @param trials 
        */
  gambling:function(stake,goal,trials)
  {
@@ -146,6 +155,8 @@ module.exports={
  },
          /**
          * @description program to find distinct coupon numbers
+         * @param min
+         * @param max
          */
  coupon:function (min,max)// code for coupon numbers
     {
@@ -153,7 +164,7 @@ module.exports={
        var random=[],i,n;
        for(i=min;i<max;i++)
        {
-           n= lod.random(min,max);
+           n= _.random(min,max);
            random.push(n);
        }
        console.log(random);
@@ -257,7 +268,7 @@ module.exports={
          arr[i]=new Array(coloumn);//create array with column inputs
          for(j=0;j<coloumn;j++)
          {
-             arr[i][j]=prompt('enter element.....=');
+             arr[i][j]=prompt('enter element.....=  ');
          }
      }
      console.log(arr);

@@ -73,7 +73,7 @@ function playTurn(player) {
             printBoard();
             if (checkWin(player) === true) 
             {
-                console.log('Winner Winner !'+player);
+                console.log('Winner Winner Winner is !  '+player);
                 return;
             }
             if (player === 'X') {
