@@ -4,11 +4,14 @@
   "dependencies": {
     "date-and-time": "^0.6.2",
     "delay": "^3.1.0",
+    "fs": "0.0.1-security",
+    "ignore-case": "^0.1.0",
     "lodash": "^4.17.10",
     "node-stopwatch": "0.0.1",
     "npm-delay": "^1.0.4",
     "prompt": "^1.0.0",
     "prompt-sync": "^4.1.6",
-    "sleep": "^5.2.3"
+    "sleep": "^5.2.3",
+    "tolowercase": "^1.0.0"
   }
 }

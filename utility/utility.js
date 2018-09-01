@@ -275,6 +275,7 @@ module.exports={
  },
   /**
       * @description program to find sum of three equal to 0
+      * @param row
       */
  triplets:function(row)//sum of three code
  {
@@ -327,12 +328,13 @@ module.exports={
      
      console.log("distinct no of triplets "+duplicates(arr1).length)
  },
-
+ /**
+     * @description program to find permutation of a string using permute function
+     * @param var 
+     */
 permutstring:function(str)
 {
-    /**
-     * @description program to find permutation of a string using permute function
-     */
+    
  var permutations=[];
  permute(str,[]);
  console.log(permutations)
