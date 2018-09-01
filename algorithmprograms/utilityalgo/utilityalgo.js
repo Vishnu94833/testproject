@@ -179,8 +179,11 @@ var n = array.length;
  
     while ( d > 0 && array[d-1] > array[d]) {
       t          = parseInt(array[d]);
+      console.log(1)
       array[d]   = parseInt(array[d-1]);
+      console.log(3)
       array[d-1] = t;
+      console.log(3)
  
       d--;
     }
@@ -256,5 +259,39 @@ monthlypayment:function(principal,years,rate)
     console.log(n);
     console.log(r);
     console.log(x);
-}
+},
+binarytodecimal:function(num)
+{
+    
+
+    var binary= new Array();
+    var index=0;
+    while(num > 0)
+    {
+      binary[index++] = num%2;
+      num = num/2;
+    }
+    for(var i = index-1;i >= 0;i--){
+      console.log(Math.floor(binary[i]));
+    }
+ },
+ newtonmethod:function(num)
+ {
+     var epsilon=1e-15;
+     var t=num;
+    if((num>=0)&&(!NaN))
+    {
+     do
+     {
+         t=(num/t+t)/2.0;
+         
+     }while(Math.abs(t-num/t)>epsilon*t)
+     console.log(t)
+    }
+    else
+    {
+        console.log('enter only number')
+    }
+
+ }
 }
