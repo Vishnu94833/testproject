@@ -13,9 +13,9 @@ function searchandsort()
                 console.log("1: BinarySearch method for Integer .");
                 console.log("2: InsertionSort method for Integer . ");
                 console.log("3: BubbleSort method for Integer . ");  
-                console.log("4: InsertionSort method for  String. ");
+                console.log("4: Binarysearch method for  String. ");
                 console.log("5: InsertionSort method for  String. ");
-                console.log("6: InsertionSort method for  String. "); 
+                console.log("6: Bubblesort method for  String. "); 
                 var choice= prompt("Enter your choice of operation: ");
 
             switch(parseInt(choice))

@@ -1,11 +1,20 @@
 module.exports={
+/**
+ * @description program to find anagram of a string
+ */
+
+
     anagram:function (s1,s2)
 {
+    /**
+     * @param s1 string one
+     * @param s2 string two
+     */
    
-    if((s1)>=('a'&&'A')&&(s2)>=('a'&&'A'))
+    if((s1)>=('a'&&'A')&&(s2)>=('a'&&'A'))//limits only to string
     {
 
-            if(s1.toLowerCase().split("").sort().join("").trim() === s2.toLowerCase().split("").sort().join("").trim())
+            if(s1.toLowerCase().split("").sort().join("").trim() === s2.toLowerCase().split("").sort().join("").trim())//checks for the anagram condition
             {
                      console.log('given string is a anagram')
             }
@@ -31,16 +40,24 @@ getCurrentTime:function()//create getcurrent time function for stopwatch code
      var elapsed=(stopTime-startTime)/1000;//elapsed time formula
      return elapsed;
  },
+
+ /**
+  * @description program to find prime numbers between the given range
+  */
 primenumber:function(num1,num2)
 {
+    /**
+     * @param num1 the lower number
+     * @param num2 the higher number
+     */
 var num1, num2,flag = 0, i, j;
  if(num1==0)
  console.log(2);
-    for(i = num1; i <= num2; i++)
+    for(i = num1; i <= num2; i++)//loop for the given range of times
     {
      for( j =2; j <i; j++)
      {
-         if(i % j == 0)
+         if(i % j == 0)//condition to check prime number
          {
              flag = 0;
              break;
@@ -57,8 +74,15 @@ var num1, num2,flag = 0, i, j;
      }
     }
 },
+ /**
+  * @description program to find prime,palindrome and anagram between the given range
+  */
 primepalindrome:function(lower,upper)
 {
+    /**
+     * @param lower 
+     * @param upper
+     */
     var prompt=require('prompt-sync')();
  var lower, upper,flag = 0, i, j;
  // if(s2>s1)
@@ -67,7 +91,7 @@ primepalindrome:function(lower,upper)
  // }
   if(lower==0)
   console.log(2);
-  for(i = lower; i <= upper; i++)
+  for(i = lower; i <= upper; i++)//for loop runs till the upper range
   {
       for( j =2; j <i; j++)
       {
@@ -105,8 +129,16 @@ primepalindrome:function(lower,upper)
   }
  
 },
+
+ /**
+  * @description program to find sorting of an array using bubblesort
+  */
+
 bubblesort:function(num) 
 {  
+    /**
+     * @param num
+     */
     var prompt=require('prompt-sync')();
     var array=new Array(num);
     for(i=0;i<num;i++)
@@ -134,8 +166,17 @@ bubblesort:function(num)
     console.log(array+" , ");
 },
 
+ /**
+  * @description program to find sorting of an array using insertionsort
+  */
 insertionsort:function(n)
 {
+    /**
+     * @param n
+     * @param i
+     * @param d
+     * @param t
+     */
 var n,i, d, t;
  
 var prompt=require('prompt-sync')();
@@ -169,9 +210,16 @@ var n = array.length;
  
   return 0;
 },
+
+ /**
+  * @description program to find a word from an array using binarysearch
+  */
 binarysearchword:function(array,string)
 {
-    
+    /**
+     * @param array
+     * 
+     */
    
     array=array.sort();
     console.log(array);
@@ -201,8 +249,14 @@ binarysearchword:function(array,string)
     console.log('the element was not found');
     return 0;
 },
+ /**
+  * @description program to find sorting of an array using mergesort using three different function
+  */
 mergesort : function(size)
     {
+        /**
+         * @param size
+         */
         var prompt=require('prompt-sync')();
         var arr=new Array(size);
             for(let i=0;i<size;i++)
@@ -275,8 +329,16 @@ mergesort : function(size)
             j++;
         }
     },
+
+     /**
+  * @description program to find temperature conversion from celsius to farenheit and vice versa
+  */
 temperatureconversion:function(value)
 {
+    /**
+     * @param c
+     * @param f
+     */
     var c,f;
     var prompt=require('prompt-sync')();
     switch(parseInt(value))
@@ -295,23 +357,36 @@ temperatureconversion:function(value)
         console.log("invalid temperature.... ")
     }
 },
+ /**
+  * @description program to find monthly payment using given formula
+  */
 monthlypayment:function(principal,years,rate)
 {
+    /**
+     * @param principal
+     * @param years
+     * @param rate
+     */
     var payment;
     var n=(12*years);
     var r=(rate/(12*100));
     var x=Math.pow((1+r),(-n));
     payment=((principal*r)/(1-x));
-    console.log(n);
-    console.log(r);
-    console.log(x);
+    // console.log(n);
+    // console.log(r);
+    // console.log(x);
     console.log("payment....: "+payment)
 },
-binarytodecimal:function(num)
+ /**
+  * @description program to convert decimal to binary
+  */
+decimaltobinary:function(num)
 {
-    
+    /**
+     * @param binary[] array
+     */
 
-    var binary= new Array();
+    var binary=[];
     var index=0;
     while(num > 0)
     {
@@ -322,8 +397,15 @@ binarytodecimal:function(num)
       console.log((binary[i]));
     }
  },
+ 
+  /**
+  * @description program to find square root of a number using newton method
+  */
  newtonmethod:function(num)
  {
+     /**
+      * @param num
+      */
      var epsilon=1e-15;
      var t=num;
     if((num>=0)&&(!NaN))
@@ -341,8 +423,15 @@ binarytodecimal:function(num)
     }
 
  },
+  /**
+  * @description program to swap lower and upper nibble of a number
+  */
  swapnibble:function(c)
  {
+     /**
+      * @param temp1
+      * @param temp2S
+      */
     var temp1, temp2;
     var flag=0;
          temp1 = c & 0x0F;
@@ -371,6 +460,9 @@ binarytodecimal:function(num)
          
 
  },
+  /**
+  * @description program to find minimum number of notes to be printed by the vending machine
+  */
  vendingmachine : function(amount)
     {
         var count =0;
@@ -436,6 +528,9 @@ case 8 : if(amount/1>=1)
     count = parseInt(count)
     console.log('Total notes are ' +count)
     },
+     /**
+  * @description program to find an integer from a array using binary search
+  */
 binarysearchint:function(size)
 {
     var prompt=require('prompt-sync')();
@@ -476,7 +571,9 @@ binarysearchint:function(size)
 
 
 /************************************************************************************/
-
+     /**
+  * @description program to sort a array using bubble sort
+  */
 
 
 bubblesortint:function(num) 
@@ -507,7 +604,9 @@ bubblesortint:function(num)
     }
     console.log(array+" , ");
 },
-
+     /**
+  * @description program to sort a array using insertion sort
+  */
 insertionsortint:function(n)
 {
 var n,i, d, t;
@@ -543,6 +642,9 @@ var n = array.length;
  
   return 0;
 },
+     /**
+  * @description program to find an string from a array using binary search
+  */
 binarysearchstring:function(size)
 {
     var prompt=require('prompt-sync')();
@@ -579,6 +681,9 @@ binarysearchstring:function(size)
     console.log('the element was not found');
     return 0;
 },
+     /**
+  * @description program to sort string using bubble sort
+  */
 bubblesortstring:function(num) 
 {  
     var prompt=require('prompt-sync')();
@@ -607,7 +712,9 @@ bubblesortstring:function(num)
     }
     console.log(array+" , ");
 },
-
+  /**
+  * @description program to sort string using insertion sort
+  */
 insertionsortstring:function(n)
 {
 var n,i, d, t;
@@ -625,11 +732,11 @@ var n = array.length;
  
     while ( d > 0 && array[d-1] > array[d]) {
       t          = (array[d]);
-      console.log(1)
+      
       array[d]   = (array[d-1]);
-      console.log(3)
+     
       array[d-1] = t;
-      console.log(3)
+    
  
       d--;
     }
@@ -644,20 +751,23 @@ var n = array.length;
   return 0;
 },
 
-
+     /**
+  * @description program to find day of a week using formula
+  */
 
 dayofweek:function(day,month,year) 
 {
         
-        aa =(((14 - month) / 12));
+        aa =(Math.floor((14 - month) / 12));
         aa=parseInt(aa);
         // console.log(aa)
         yy = year - aa;
         // console.log(yy)
-        mm =((month +Number (12 * aa)) - 2);
+        mm =((month +(12 * aa)) - 2);
         mm=parseInt(mm)
         // console.log(mm)
-        dayOfWeek = ((day + yy + (yy / 4) - (yy / 100) +(yy / 400) + ((31 * mm) / 12)) % 7);
+        dayOfWeek = ((day + yy + Math.floor(yy / 4) - Math.floor(yy / 100) 
+        +Math.floor(yy / 400) + Math.floor((31 * mm) / 12)) % 7);
     // console.log(dayOfWeek)
         dayOfWeek=parseInt(dayOfWeek)
         switch(parseInt(month))
@@ -675,7 +785,7 @@ case 4:
       console.log("April\n");
       break;
 case 5:
-      console.log("MAy\n");
+      console.log("May\n");
       break;
 case 6:
       console.log("June\n");
@@ -730,47 +840,41 @@ default:
     } 
     
     },
-questionnumber:function(readlinesync,value)
-{
-    var prompt=require('prompt-sync')();
-    var arr=[],arr1=[];
-    for(var i=0;i<value;i++)
+    /**
+  * @description program to find the question number
+  */
+    questionNumber : function(number)
     {
-    arr.push(i)
-    }
-    var first=0,last=arr.length-1;
-    while(first<=last)
+        var prompt =require('prompt-sync')()
+        var n = Math.pow(2,number)
+        console.log('Think of a number between 0 and ' + n )
+        var low = 0;
+        var high = n;
+        var secret = this.question(low,high)
+        console.log('Your number is '+secret)
+    },
+        
+    question : function(low ,high)
     {
-        var arr=[], arr1=[];
-        for(var i=0; i<value; i++)
+        var prompt =require('prompt-sync')()
+        if ((high - low) == 1) 
+        return low;
+        else
+        var mid =low + (high-low) / 2;
+        console.log("Is it less than  " , +mid)
+        var choice = prompt('Enter the choice in true or false : ')
+        if(choice ==='t')
         {
-            arr.push(i);
+        return this.question(low,mid)
         }
-        var first=0, last=arr.length-1;
-        while(first <=last)
+        else if(choice === 'f')
         {
-            var middle= Math.floor((first+last)/2);
-            value=readlinesync.question(`\n\nis ${arr[middle]} is the the element? \n if yes, press 1, else press 0: `);
-            if(value=='0')
-            {
-                arr1.push(arr[middle]);
-                var val2=readlinesync.question(`\n\n if your value >${arr[middle]} \n if yes press 1, else press: `);
-                if(val2=='1')
-                {
-                    first=middle+1;
-                }else
-                {
-                    last=middle-1;
-                }
-            }
-            else if(value=='1')
-            {
-                console.log("Number Found!!!");
-                process.exit();
-            }
-        }
+        return this.question(mid,high)
     }
-
+    else
+    {
+        console.log('Not valid')
+    }
 },
 }
 
