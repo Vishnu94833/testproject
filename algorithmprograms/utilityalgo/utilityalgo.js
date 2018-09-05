@@ -84,6 +84,7 @@ primepalindrome:function(lower,upper)
      * @param upper
      */
     var prompt=require('prompt-sync')();
+    var res=[];
  var lower, upper,flag = 0, i, j;
  // if(s2>s1)
  // {
@@ -109,23 +110,47 @@ primepalindrome:function(lower,upper)
       {
         
            var y=i;
-           console.log("prime numbers... "+y)
-          if((i.toString().split("").reverse().join("")==i))
+          console.log("prime numbers... "+y)
+          res.push(y);
+          anagram(res);
+          
+          
+           if((i.toString().split("").reverse().join("")==i))
           {
          console.log(" primepalindrome... "+i);
           }
-            
-            if( i.toString().split("").sort().join("").trim()==y.toString().split("").sort().join("").trim())
-            {
-              console.log('the given number '+y+' is a anagram of '+i)
-            }
-            
-         
           
-          }
-         
-      
-      
+            
+            // if( i.toString().split("").sort().join("").trim()==
+            // y.toString().split("").sort().join("").trim())
+            // {
+            //   console.log('the given number '+y+' is a anagram of '+i)
+            // }
+            
+          }  
+          
+  }
+  function anagram(res)
+  {
+      var n = res.length;
+
+for(var i = 0; i <= n; i++)
+{
+    for(var j =i+1; j <= n; j++)
+    {
+        var arr1=[];
+        var s1 = "" + parseInt(res[i]); 
+        var s2 = "" + parseInt(res[j]);
+        s1 = s1.split('').sort();       
+        s2 = s2.split('').sort();     //parse each element and sort in ascending order  
+        if(s1.join() === s2.join())  //joins the specified path string segments 
+        {
+            console.log("The two anagrams are : " + res[i] + " , " + res[j]);
+            arr1.push(res[i]); // stores the result in array arr1
+            
+        }
+  }
+}
   }
  
 },
@@ -192,11 +217,11 @@ var n = array.length;
  
     while ( d > 0 && array[d-1] > array[d]) {
       t          = parseInt(array[d]);
-      console.log(1)
+     // console.log(1)
       array[d]   = parseInt(array[d-1]);
-      console.log(3)
+     // console.log(3)
       array[d-1] = t;
-      console.log(3)
+     // console.log(3)
  
       d--;
     }
@@ -223,6 +248,7 @@ binarysearchword:function(array,string)
    
     array=array.sort();
     console.log(array);
+    string=string.toLowerCase()
     var flag=0;
     var lsb=0;
     var msb=array.length-1;
@@ -393,9 +419,9 @@ decimaltobinary:function(num)
       binary[index++] = Math.floor(num%2);
       num = Math.floor(num/2);
     }
-    for(var i = index-1;i >= 0;i--){
-      console.log((binary[i]));
-    }
+    //for(var i = index-1;i >= 0;i--){
+      console.log(String(binary.reverse()).replace(/\,/g," "));
+    
  },
  
   /**
@@ -430,18 +456,23 @@ decimaltobinary:function(num)
  {
      /**
       * @param temp1
-      * @param temp2S
+      * @param temp2
       */
-    var temp1, temp2;
-    var flag=0;
-         temp1 = c & 0x0F;
-         temp2 = c & 0xF0;
-         temp1=temp1 << 4;
-         temp2=temp2 >> 4;
+        var temp1, temp2;
+        var flag=0;
+        this.decimaltobinary(c);
+        console.log(c)
+         temp1 = c & 0x0F;// and input with hexadecimal 0x0f
+         temp2 = c & 0xF0;// and input with hexadecimal 0xf0
+         temp1=temp1 << 4;// left shift temp1 
+         temp2=temp2 >> 4;// right shift temp2
     var n=0,count=0;
-         var temp=(temp2|temp1); //adding the bits
+         var temp=(temp2|temp1); //or temp1 and temp2
+         
+         this.decimaltobinary(temp)
          console.log(temp)
-        
+      // this.decimaltobinary(temp);
+        // console.log(res)
          for(i=temp;i>=0;i--)
          {
              if(temp==Math.pow(2,i))
@@ -455,70 +486,69 @@ decimaltobinary:function(num)
          console.log('2 power of '+i)
          else
          console.log('number is not a power of 2')
-         
-         
-         
-
  },
   /**
   * @description program to find minimum number of notes to be printed by the vending machine
   */
  vendingmachine : function(amount)
     {
+        /**
+         * @param amount
+         */
         var count =0;
         choice = 1;
         switch(choice)
         {
-            case 1 : if(amount/1000>=1)
+            case 1 : if(amount/1000>=1)//case1 to print 1000 notes
             {
                     var result = Math.floor(amount/1000)
                     console.log('Number of 1000 rs note are : ' +result)
                     amount = amount -result*1000;
                     count = count + result;
         }
-        case 2 : if(amount/500>=1)
+        case 2 : if(amount/500>=1)//case2 to print 500 notes
         {
                 var result1 = Math.floor(amount/500)
                 console.log('Number of 500 rs note are : ' +result1)
                 amount = amount - result1*500;
                 count = count + result1;
     }
-    case 3 : if(amount/100>=1)
+    case 3 : if(amount/100>=1)//case3 to print 100 notes
     {
             var result2 = Math.floor(amount/100)
             console.log('Number of 100 rs note are : ' +result2)
             amount = amount - result2*100;
             count = count + result2;
 }
-case 4 : if(amount/50>=1)
+case 4 : if(amount/50>=1)//case4 to print 50 notes
 {
         var result3 = Math.floor(amount/50)
         console.log('Number of 50 rs note are : ' +result3)
         amount = amount - result3*50;
         count = count + result3;
 }
-case 5: if(amount/10>=1)
+case 5: if(amount/10>=1)//case5 to print 10 notes
 {
         var result4 = Math.floor(amount/10)
         console.log('Number of 10 rs note are : ' +result4)
         amount = amount - result4*10;
         count = count + result4;
 }
-case 6: if(amount/5>=1)
+case 6: if(amount/5>=1)//case6 to print 5 notes
 {
         var result5 = Math.floor(amount/5)
         console.log('Number of 5 rs note are : ' +result5)
         amount = amount - result5*5;
         count = count + result5;
 }
-case 7 : if(amount/2>=1)
+case 7 : if(amount/2>=1)//case7 to print 2 notes
 {
         var result7 = Math.floor(amount/2)
         console.log('Number of 2 rs note are : ' +result7)
         amount = amount - result7*2;
         count = count + result7;
 }
-case 8 : if(amount/1>=1)
+case 8 : if(amount/1>=1)//case8 to print 1 notes
 {
         var result8 = Math.floor(amount/1)
         console.log('Number of 1 rs note are : ' +result8)
@@ -533,6 +563,9 @@ case 8 : if(amount/1>=1)
   */
 binarysearchint:function(size)
 {
+    /**
+     * @param size
+     */
     var prompt=require('prompt-sync')();
     var flag=0;
     var array=new Array(size);
@@ -547,7 +580,7 @@ binarysearchint:function(size)
     var num=prompt('enter number/string to be searched...  ');
     while(lsb<=msb)
     {
-        var middle=Math.floor((lsb+msb)/2);
+        var middle=Math.floor((lsb+msb)/2);// to find middle element of array
         if(num==array[middle])
         {
             flag=1;
@@ -555,7 +588,7 @@ binarysearchint:function(size)
         }
         else
         {
-            if(num>array[middle])
+            if(num>array[middle])//checks if number is greater than middle element
             lsb=middle+1;
             else
             msb=middle-1;
@@ -578,6 +611,9 @@ binarysearchint:function(size)
 
 bubblesortint:function(num) 
 {  
+    /**
+     * @param num
+     */
     var prompt=require('prompt-sync')();
     var array=new Array(num);
     for(i=0;i<num;i++)
@@ -588,11 +624,11 @@ bubblesortint:function(num)
     console.log(n)
     var temp = 0;  
     
-     for(var i=0; i < n; i++)
+     for(var i=0; i < n; i++)//loop runs for n times
     {  
-             for(var j=1; j < (n-i); j++)
+             for(var j=1; j < (n-i); j++)//loop runs for n-1 times
             {  
-                      if(array[j-1] > array[j])
+                      if(array[j-1] > array[j])//compares array[0]>array[1]
                         {  
                              //swap elements  
                              temp = parseInt(array[j-1]);  
@@ -609,6 +645,12 @@ bubblesortint:function(num)
   */
 insertionsortint:function(n)
 {
+    /**
+     * @param n
+     * @param i
+     * @param d
+     * @param t
+     */
 var n,i, d, t;
  
 var prompt=require('prompt-sync')();
@@ -619,10 +661,12 @@ for (i = 0; i < n; i++) {
   }
 var n = array.length; 
 
-  for (i = 1 ; i <= n - 1; i++) {
+  for (i = 1 ; i <= n - 1; i++) 
+  {
     d = i;
  
-    while ( d > 0 && array[d-1] > array[d]) {
+    while ( d > 0 && array[d-1] > array[d]) //condition for insertion sort
+    {
       t          = parseInt(array[d]);
       console.log(1)
       array[d]   = parseInt(array[d-1]);
@@ -647,6 +691,9 @@ var n = array.length;
   */
 binarysearchstring:function(size)
 {
+    /**
+     * @param size
+     */
     var prompt=require('prompt-sync')();
     var flag=0;
     var array=new Array(size);
@@ -686,6 +733,9 @@ binarysearchstring:function(size)
   */
 bubblesortstring:function(num) 
 {  
+    /**
+     * @param num
+     */
     var prompt=require('prompt-sync')();
     var array=new Array(num);
     for(i=0;i<num;i++)
@@ -757,6 +807,11 @@ var n = array.length;
 
 dayofweek:function(day,month,year) 
 {
+    /**
+     * @param day
+     * @param month
+     * @param year
+     */
         
         aa =(Math.floor((14 - month) / 12));
         aa=parseInt(aa);
@@ -770,6 +825,8 @@ dayofweek:function(day,month,year)
         +Math.floor(yy / 400) + Math.floor((31 * mm) / 12)) % 7);
     // console.log(dayOfWeek)
         dayOfWeek=parseInt(dayOfWeek)
+
+     
         switch(parseInt(month))
    {
 case 1:
@@ -814,7 +871,6 @@ default:
       }
 
     //   var x= ((dayOfWeek + 6) % 7) + 1;
-
       switch ((dayOfWeek))
       {
         case 0:
@@ -837,14 +893,20 @@ default:
             break;
         case 6:
             console.log("Saturday");
+            break;
+        case 7:
+        console.log("invalid date")
     } 
-    
+
     },
     /**
   * @description program to find the question number
   */
     questionNumber : function(number)
     {
+        /**
+         * @param number
+         */
         var prompt =require('prompt-sync')()
         var n = Math.pow(2,number)
         console.log('Think of a number between 0 and ' + n )
@@ -856,6 +918,10 @@ default:
         
     question : function(low ,high)
     {
+        /**
+         * @param low
+         * @param high
+         */
         var prompt =require('prompt-sync')()
         if ((high - low) == 1) 
         return low;
