@@ -174,16 +174,16 @@ bubblesort:function(num)
     console.log(n)
     var temp = 0;  
     
-     for(var i=0; i < n; i++)
+     for(var i=1; i < n-1; i++)
     {  
-             for(var j=1; j < (n-i); j++)
+             for(var j=0; j < (n-2); j++)
             {  
-                      if(array[j-1] > array[j])
+                      if(array[j] > array[j+1])
                         {  
                              //swap elements  
-                             temp = parseInt(array[j-1]);  
-                             array[j-1] = parseInt(array[j]);  
-                             array[j] = temp;  
+                             temp = parseInt(array[j]);  
+                             array[j] = parseInt(array[j+1]);  
+                             array[j+1] = temp;  
                         }  
                       
             }  
@@ -455,27 +455,27 @@ decimaltobinary:function(num)
  swapnibble:function(c)
  {
      /**
-      * @param temp1
-      * @param temp2
+      * @param a
+      * @param b
       */
-        var temp1, temp2;
+        var a, b;
         var flag=0;
         this.decimaltobinary(c);
         console.log(c)
-         temp1 = c & 0x0F;// and input with hexadecimal 0x0f
-         temp2 = c & 0xF0;// and input with hexadecimal 0xf0
-         temp1=temp1 << 4;// left shift temp1 
-         temp2=temp2 >> 4;// right shift temp2
+         a = c & 0x0F;// and input with hexadecimal 0x0f
+         b = c & 0xF0;// and input with hexadecimal 0xf0
+         a=a << 4;// left shift temp1 
+         b=b >> 4;// right shift temp2
     var n=0,count=0;
-         var temp=(temp2|temp1); //or temp1 and temp2
+         var res=(b|a); //or temp1 and temp2
          
-         this.decimaltobinary(temp)
-         console.log(temp)
+         this.decimaltobinary(res)
+         console.log(res)
       // this.decimaltobinary(temp);
         // console.log(res)
-         for(i=temp;i>=0;i--)
+         for(i=res;i>=0;i--)
          {
-             if(temp==Math.pow(2,i))
+             if(res==Math.pow(2,i))
              {
                  flag=1;
                  break;
@@ -490,74 +490,32 @@ decimaltobinary:function(num)
   /**
   * @description program to find minimum number of notes to be printed by the vending machine
   */
- vendingmachine : function(amount)
+ 
+
+
+vending:function(amount)
     {
-        /**
-         * @param amount
-         */
-        var count =0;
-        choice = 1;
-        switch(choice)
-        {
-            case 1 : if(amount/1000>=1)//case1 to print 1000 notes
-            {
-                    var result = Math.floor(amount/1000)
-                    console.log('Number of 1000 rs note are : ' +result)
-                    amount = amount -result*1000;
-                    count = count + result;
-        }
-        case 2 : if(amount/500>=1)//case2 to print 500 notes
-        {
-                var result1 = Math.floor(amount/500)
-                console.log('Number of 500 rs note are : ' +result1)
-                amount = amount - result1*500;
-                count = count + result1;
-    }
-    case 3 : if(amount/100>=1)//case3 to print 100 notes
+        var amt=Math.round(amount);
+        console.log(parseInt(amt))
+        var arr=[2000,500,100,50,20,10,5,2,1];
+        var count,i;
+    for(i=0;i<=arr.length;i++)
     {
-            var result2 = Math.floor(amount/100)
-            console.log('Number of 100 rs note are : ' +result2)
-            amount = amount - result2*100;
-            count = count + result2;
-}
-case 4 : if(amount/50>=1)//case4 to print 50 notes
-{
-        var result3 = Math.floor(amount/50)
-        console.log('Number of 50 rs note are : ' +result3)
-        amount = amount - result3*50;
-        count = count + result3;
-}
-case 5: if(amount/10>=1)//case5 to print 10 notes
-{
-        var result4 = Math.floor(amount/10)
-        console.log('Number of 10 rs note are : ' +result4)
-        amount = amount - result4*10;
-        count = count + result4;
-}
-case 6: if(amount/5>=1)//case6 to print 5 notes
-{
-        var result5 = Math.floor(amount/5)
-        console.log('Number of 5 rs note are : ' +result5)
-        amount = amount - result5*5;
-        count = count + result5;
-}
-case 7 : if(amount/2>=1)//case7 to print 2 notes
-{
-        var result7 = Math.floor(amount/2)
-        console.log('Number of 2 rs note are : ' +result7)
-        amount = amount - result7*2;
-        count = count + result7;
-}
-case 8 : if(amount/1>=1)//case8 to print 1 notes
-{
-        var result8 = Math.floor(amount/1)
-        console.log('Number of 1 rs note are : ' +result8)
-        count = count + result8;
-}
+    if(amt/arr[i]>=1)//case to print how many no of notes 2000,500,100,50,20,10,5,2,1
+    {
+            var result = parseInt(Math.floor(amt/arr[i]))
+            console.log('Number of '+arr[i]+' rs note are : ' +result)
+            amt = parseInt(amt) - parseInt(result*arr[i]);
+            amt=parseInt(amt)
+            count = parseInt(count) + parseInt(result);
+
     }
-    count = parseInt(count)
-    console.log('Total notes are ' +count)
+    
+    }
+    // console.log(count)
     },
+    
+
      /**
   * @description program to find an integer from a array using binary search
   */
@@ -624,16 +582,16 @@ bubblesortint:function(num)
     console.log(n)
     var temp = 0;  
     
-     for(var i=0; i < n; i++)//loop runs for n times
+     for(var i=1; i < n-1; i++)//loop runs for n times
     {  
-             for(var j=1; j < (n-i); j++)//loop runs for n-1 times
+             for(var j=0; j < (n-2); j++)//loop runs for n-1 times
             {  
-                      if(array[j-1] > array[j])//compares array[0]>array[1]
+                      if(array[j] > array[j+1])//compares array[0]>array[1]
                         {  
                              //swap elements  
-                             temp = parseInt(array[j-1]);  
-                             array[j-1] = parseInt(array[j]);  
-                             array[j] = temp;  
+                             temp = parseInt(array[j]);  
+                             array[j] = parseInt(array[j+1]);  
+                             array[j+1] = temp;  
                         }  
                       
             }  
@@ -805,7 +763,7 @@ var n = array.length;
   * @description program to find day of a week using formula
   */
 
-dayofweek:function(day,month,year) 
+dayofweek:function(date,month,year) 
 {
     /**
      * @param day
@@ -815,62 +773,17 @@ dayofweek:function(day,month,year)
         
         aa =(Math.floor((14 - month) / 12));
         aa=parseInt(aa);
-        // console.log(aa)
+        
         yy = year - aa;
-        // console.log(yy)
+        
         mm =((month +(12 * aa)) - 2);
         mm=parseInt(mm)
-        // console.log(mm)
-        dayOfWeek = ((day + yy + Math.floor(yy / 4) - Math.floor(yy / 100) 
+        
+        dayOfWeek = ((date + yy + Math.floor(yy / 4) - Math.floor(yy / 100) 
         +Math.floor(yy / 400) + Math.floor((31 * mm) / 12)) % 7);
-    // console.log(dayOfWeek)
+    
         dayOfWeek=parseInt(dayOfWeek)
-
-     
-        switch(parseInt(month))
-   {
-case 1:
-      console.log("January\n");
-      break;
-case 2:
-      console.log("February\n");
-      break;
-case 3:
-      console.log("March\n");
-      break;
-case 4:
-      console.log("April\n");
-      break;
-case 5:
-      console.log("May\n");
-      break;
-case 6:
-      console.log("June\n");
-      break;
-case 7:
-      console.log("July\n");
-      break;
-case 8:
-      console.log("August\n");
-      break;
-case 9:
-      console.log("September\n");
-      break;
-case 10:
-      console.log("October\n");
-      break;
-case 11:
-      console.log("November\n");
-      break;
-case 12:
-      console.log("December\n");
-      break;
-default:
-      console.log("invalid Month number\nPlease try again ....\n");
-      break;
-      }
-
-    //   var x= ((dayOfWeek + 6) % 7) + 1;
+    
       switch ((dayOfWeek))
       {
         case 0:

@@ -1,6 +1,8 @@
 var prompt=require('prompt-sync')();
 var utility=require('/home/abc/VSC code/VishnuProjects/algorithmprograms/utilityalgo/utilityalgo.js')
-
+/**
+ * @description program to find anagram of a given string
+ */
 function anagram()
 {
     var s1=prompt('enter string1...');

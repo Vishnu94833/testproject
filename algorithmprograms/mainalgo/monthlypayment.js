@@ -1,6 +1,10 @@
 var prompt=require('prompt-sync')();
 var utility=require('/home/abc/VSC code/VishnuProjects/algorithmprograms/utilityalgo/utilityalgo.js')
 
+
+/**
+ * @description program to calculate monthly payment
+ */
 function monthlypayment()
 {
     var principal=prompt("enter the principal amount... ")
