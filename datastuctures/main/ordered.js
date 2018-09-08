@@ -3,11 +3,11 @@ var fs = require('fs')
 var prompt = require('prompt-sync')()
 var utility= require('/home/abc/VSC code/VishnuProjects/datastuctures/utility/utility.js')
 
-var data = fs.readFileSync('data.txt')
+var data = fs.readFileSync('integerdata.txt')
 data =data.toString().split(' ')
-function unorderedlist()
+function orderedlist()
 {
     var word = prompt('Enter the word u want to search : ')  
-    utility.unorderedlist(data, word)
+    utility.orderedList(data, word)
 }
-unorderedlist()
+orderedlist()
