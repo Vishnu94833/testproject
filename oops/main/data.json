@@ -1,0 +1,18 @@
+{
+    "rice": [
+        { "ricename":"basmati","weight":25 ,"price":100},  
+        { "ricename":"sonamasoori","weight":50 ,"price":50}, 
+        { "ricename":"jeera","weight":100 ,"price":150}]  ,                              
+
+        "pulses": [
+            { "pulsesname":"a","weight":25 ,"price":10},  
+            { "pulsesname":"b","weight":50 ,"price":50}, 
+            { "pulsesname":"c","weight":100 ,"price":15}],
+
+            "wheat": [
+            { "wheatname":"a","weight":25 ,"price":30},  
+            { "wheatname":"b","weight":50 ,"price":50}, 
+            { "wheatname":"c","weight":100 ,"price":20}]
+        
+    
+ } 
