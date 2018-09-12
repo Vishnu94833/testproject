@@ -1,0 +1,8 @@
+{
+    "stock": [
+        { "stockname":"Oracle","stockshare":25 ,"stockprice":30},  
+        { "stockname":"Cisco","stockshare":50 ,"stockprice":50}, 
+        { "stockname":"AMD","stockshare":100 ,"stockprice":20}]
+    
+
+}

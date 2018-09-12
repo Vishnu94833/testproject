@@ -49,6 +49,9 @@ else
     console.log('invalid')
     process.exit()
 }
+var d=new Date();
+var date=d.getDate()+'/'+(d.getMonth()+1)+'/'+d.getFullYear();
+string=string.replace(/01-01-2016/g,date);
 console.log(string)
 
 
