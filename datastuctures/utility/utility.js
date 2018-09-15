@@ -246,7 +246,7 @@ module.exports =
     }
     ll.sortList()
     var res = ll.printList() 
-
+    
     fs.writeFile('/home/abc/VSC code/VishnuProjects/datastuctures/main/data.txt',res,function(err){
         if(err)throw err
     })
@@ -262,7 +262,7 @@ list   else   insert   the   number   in   appropriate   position
  * @param array
  * @param number
  */
-   orderedList : function(array, word)
+   orderedList : function(array, number)
    {
     class Node//create a node 
     {
@@ -310,16 +310,7 @@ list   else   insert   the   number   in   appropriate   position
     {
         console.log(this.size);
     }
-    printList()
-    {
-        var curr = this.head;
-        var str = "";
-        while (curr) {
-            str += curr.element + " ";
-            curr = curr.next;
-        }
-        console.log(str);
-    }
+   
     add(element)
     {
         // creates a new node
@@ -494,12 +485,12 @@ list   else   insert   the   number   in   appropriate   position
     {
         ll.add(array[i])
     }
-    if(ll.indexOf(word)==-1)
+    if(ll.indexOf(number)==-1)
     {
-        ll.add(word)
+        ll.add(number)
     }    
     else{
-        ll.removeElement(word)
+        ll.removeElement(number)
     }
     ll.sortList()
     var res = ll.printList() 
@@ -958,8 +949,17 @@ efficiently   search   a   number   from   a   given   set   of   number
     var prompt=require('prompt-sync')();
     var arr = new Array(10),arr1=[],arr2=[],arr3=[],arr4=[],arr5=[],arr6=[],arr7=[],arr8=[],arr9=[],arr10=[],arr11=[];
     var list = new LinkedList();
-    var data = fs.readFileSync('hash.txt');
-    data = data.toString().split(" ");
+    var hash1 = fs.readFileSync('hash.txt'); //reading the hash.txt file into this programe
+    hash1 = hash1.toString().split(" ");  //convert string into an array
+    var hash = []
+    for(var i = 0 ; i < hash1.length; i++)
+    {
+        if(hash1 != '')
+
+        {
+            hash.push(hash1[i]);
+        }
+    }
     var arr = Array.from(data);
     arr.sort();
     console.log(arr);
@@ -974,16 +974,18 @@ efficiently   search   a   number   from   a   given   set   of   number
     {
         console.log("Element not found!!");
        list.add(num);
+       hash.push(num)
     }
     else
     {
         console.log("Element found!!");      
         list.removeElement(num);
+        hash.pop(num)
     }
         num = list.printList();
         for(var j=0; j<data.length;j++)
         {
-            var res = parseInt(data[j])%parseInt(data.length);
+           var res = parseInt(data[j])%parseInt(data.length);
             switch(parseInt(res))
             {
                 case 0:

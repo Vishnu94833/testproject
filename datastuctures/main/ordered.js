@@ -13,7 +13,7 @@ var data = fs.readFileSync('integerdata.txt')
 data =data.toString().split(' ')
 function orderedlist()
 {
-    var word = prompt('Enter the number u want to search : ')  
-    utility.orderedList(data, word)
+    var number = prompt('Enter the number u want to search : ')  
+    utility.orderedList(data, number)
 }
 orderedlist()

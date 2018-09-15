@@ -26,6 +26,9 @@ class companyshares
 //     var totalvalueofeachstack=parseInt(share*price);
 // console.log("the total value of  stock is ---> "+totalvalueofeachstack)
   console.log(arrayOfObjects)
+  var date = new Date();
+  var time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+  console.log("Purchase Time : " + time);
     fs.writeFile('./company.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
         if (err) throw err
         
@@ -44,6 +47,9 @@ sell()
             arrayOfObjects.company.splice(k,1);
         }
     }
+    var date = new Date();
+    var time = date.getHours() + ":" + date.getMinutes() + ":" + date.getSeconds();
+    console.log("Purchase Time : " + time);
         fs.writeFile('./company.json', JSON.stringify(arrayOfObjects), 'utf-8', function(err) {
             if (err) throw err
             console.log("Done!")

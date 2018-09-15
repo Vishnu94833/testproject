@@ -12,8 +12,10 @@ var utility= require('/home/abc/VSC code/VishnuProjects/datastuctures/utility/ut
 
 var data = fs.readFileSync('data.txt')
 data =data.toString().split(' ')
+console.log(data)
 function unorderedlist()
 {
+    
     var word = prompt('Enter the word u want to search : ')  
     utility.unorderedlist(data, word)
 }

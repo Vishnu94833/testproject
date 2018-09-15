@@ -1,3 +1,7 @@
+/**
+ * @description program to Shuffle   the   cards   using   Random   method   and   then  
+distribute   9   Cards   to   4   Players  
+ */
 function deckofcards() 
 {
     
