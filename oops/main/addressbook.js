@@ -1,92 +1,282 @@
 var fs = require('fs')
 var prompt = require('prompt-sync')();
 
+let data = fs.readFileSync('/home/abc/VSC code/VishnuProjects/oops/main/details.json');
+
+
+var address = JSON.parse(data)
+
+console.log(address.length);
+//var person= prompt('enter number of persons: ');
+var strings = /[a-zA-Z]/g;
+var integers = /[0-9]/g
+var specialchar = /[!@#$%^&*()+?><]/g;
+
+class record {
+    constructor(fname, lname, city, state, zip, phnno) {
+        this.fname = fname;
+        this.lname = lname;
+        this.city = city;
+        this.state = state;
+        this.zip = zip;
+        this.phnno = phnno;
+
+    }
+    create() {
+
+        
+        for (var i = 0; i < person; i++) {
+            var Fname = prompt('enter the first name: ');
+            if (Fname.search(integers) == -1 && Fname.search(specialchar) == -1) {
+                var Lname = prompt('enter the last name: ');
+                if (Lname.search(integers) == -1 && Lname.search(specialchar) == -1) {
+
+                    var City = prompt('enter the city name: ');
+                    var State = prompt('enter the state: ');
+                    var zip = prompt('enter the zip number: ');
+                    if (zip.search(strings) == -1 && zip.search(specialchar) == -1) {
+                        var phnno = prompt('enter the phone number: ');
+                        if (phnno.length == 10) {
+                            if (phnno.search(strings) == -1 && phnno.search(specialchar) == -1) {
+
+                                address.push({
 
 
 
-fs.readFile('details.json', 'utf-8', function (err, data) {
-    if (err) throw err
-    var record = JSON.parse(data)
-    // console.log(data)
+                                    "fname": Fname,
 
-    function Delete() {
-        var name = prompt('Enter the Firstname of Profile you want to delete ')
-        for (var i = 0; i < record.details.length; i++) {
-            if (record.details[i].firstname == name) {
-                record.details.splice(i, 1)
+
+
+                                    "lname": Lname,
+
+                                    "Address":
+                                    {
+                                        "city": City,
+                                        "state": State,
+                                        "zip": zip,
+                                        "phnno": phnno,
+
+
+                                    }
+                                })
+                                fs.writeFileSync('/home/abc/VSC code/VishnuProjects/oops/main/details.json', JSON.stringify(address), 'utf-8')
+                                console.log(address)
+                                console.log(address.length);
+                            }
+                            else {
+                                console.log("please enter valid name");
+                                process.exit();
+                            }
+                        }
+                        else {
+                            console.log("please enter valid phone number");
+                            process.exit();
+                        }
+                    }
+                    else {
+                        console.log("please enter valid name");
+                        process.exit();
+                    }
+                }
+                else {
+                    console.log("please enter valid name");
+                    process.exit();
+                }
+            }
+            else {
+                console.log("please enter valid name");
+                process.exit();
+            }
+
+        }
+
+    }
+    save() {
+
+
+        var res = JSON.stringify(address)
+        console.log(res);
+        fs.writeFileSync('/home/abc/VSC code/VishnuProjects/oops/main/details.json', res, 'utf-8')
+
+    }
+    edit() {
+        var name = prompt('Enter the user u want to Edit : ')
+
+        for (var i = 0; i < address.length; i++) {
+            if (address[i].fname == name) {
+                console.log('Press 1 to edit your City : ')
+                console.log('Press 2 to edit your pincode :')
+                console.log("press 3 to edit your State: ")
+                console.log("Press 4 to edit your Phonenumber :")
+                console.log("Press 5 to exit ")
+
+
+                var option = prompt('Enter the option you want to edit ')
+                switch (parseInt(option)) {
+
+                    case 1: var city1 = prompt('Enter your new city : ')
+                        var object1 = {
+                            "fname": address[i].fname,
+                            "lname": address[i].lname,
+                            "Address": {
+                                "city": city1,
+                                "phnno": address[i]["Address"].phnno,
+                                "zip": address[i]["Address"].zip,
+                                "state": address[i]["Address"].state
+                            }
+                        }
+                        address[i] = object1;
+                        /*fs.writeFileSync('./address.json', JSON.stringify(address_object), 'utf-8', function (err) {
+                            if (err) throw err
+    
+                        }
+                        )*/
+                        console.log(address)
+                        break;
+
+                    case 2: var pin2 = prompt('enter the new pincode : ')
+                        if (pin2.search(strings) == -1 && pin2.search(specialchar) == -1) {
+                            var object2 = {
+                                "fname": address[i].fname,
+                                "lname": address[i].lname,
+                                "Address": {
+                                    "city": address[i]["Address"].city,
+                                    "phnno": address[i]["Address"].phnno,
+                                    "zip": pin2,
+                                    "state": address[i]["Address"].state
+                                }
+                            }
+                            address[i] = object2
+                            /*fs.writeFileSync('./address.json', JSON.stringify(address_object), 'utf-8', function (err) {
+                                if (err) throw err
+        
+                            }
+                            )*/
+                            console.log(address);
+                            break;
+                        }
+                        else {
+                            console.log("please enter valid number");
+                            process.exit();
+                        }
+
+                    case 3: var state1 = prompt('Enter your new state : ')
+                        var object3 = {
+                            "fname": address[i].fname,
+                            "lname": address[i].lname,
+                            "Address": {
+                                "city": address[i]["Address"].city,
+                                "phnno": address[i]["Address"].phnno,
+                                "zip": address[i]["Address"].zip,
+                                "state": state1
+                            }
+                        }
+                        address[i] = object3;
+                        /*fs.writeFileSync('./address.json', JSON.stringify(address_object), 'utf-8', function (err) {
+                            if (err) throw err
+        
+                        }
+                        )*/
+                        console.log(address);
+                        break;
+
+                    case 4: var Phonenumber1 = prompt('Enter the new Phone number : ')
+                        if (pin2.search(strings) == -1 && pin2.search(specialchar) == -1) {
+                            var object4 = {
+                                "fname": address[i].fname,
+                                "lname": address[i].lname,
+                                "Address": {
+                                    "city": address[i]["Address"].city,
+                                    "phnno": Phonenumber1,
+                                    "zip": address[i]["Address"].zip,
+                                    "state": address[i]["Address"].state
+                                }
+                            }
+                            address[i] = object4;
+                            /* fs.writeFileSync('./address.json', JSON.stringify(address_object), 'utf-8', function (err) {
+                                 if (err) throw err
+                             }
+                             )*/
+                            console.log(address);
+                            break;
+                        }
+                        else {
+                            console.log("please enter valid phone number");
+                            process.exit();
+                        }
+
+                    case 5: process.exit()
+
+                    default: console.log('Please enter the valid option ')
+                }
             }
         }
-        fs.writeFileSync('./details.json', JSON.stringify(record), 'utf-8', function (err) {
-            if (err) throw err
-
-        })
     }
-    function create() {
-        var n = prompt("enter .... ")
-        for (var i = 0; i < n; i++) {
-            var name1 = prompt("enter firstname.... ")
-            var name2 = prompt("enter lastname.... ")
-            var cit = prompt("enter city.... ")
-            var stat = prompt('enter state ....... ')
-            var pincode = prompt('enter pincode ....... ')
-            var mobile = prompt('enter phone number ....... ')
-
-            record.details.push({
-                firstname: name1,
-                lastname: name2,
-                address_and_phone_num: { city: cit, state: stat, zipcode: pincode, phonenumber: mobile }
-            })
-
-            fs.writeFile('details.json', JSON.stringify(record), 'utf-8', function (err) {
-                if (err) throw err
-
-            })
-        }
-    }
-    console.log('enter 1 to create address.... ')
-    console.log('enter 2 to open the address book.....')
-    console.log('enter 3 to exit .... ')
-    var choice = prompt('choice : ')
-    switch (parseInt(choice)) {
-        case 1:
-            create();
-            
-            break
-        case 2:
-            // var open = prompt('enter first name to see the address...  : ')
-            // console.log('enter 1 for adding address.... ')
-            console.log('enter 1 to delete address.... ')
-            console.log('enter 2 to update address.... ')
-            console.log('enter 3 to arrange address.... ')
-            console.log('enter 4 to address.... ')
-            console.log('enter 5 to save.... ')
-            console.log('enter 6 to quit.... ')
-            var option = prompt('enter option .... ')
-            switch (parseInt(option)) {
-                case 1:
-                Delete();
-                    break;
 
 
-                case 2:
-                    break;
 
-                case 3:
-                    break;
 
-                case 4:
-                    break;
 
-                case 5:
-                    break;
 
-                case 6:
-                    break;
+    delete() {
+        var lastname = prompt('which name you want to delete ? : ')
+        for (var i = 0; i < address.length; i++) {
+            if (address[i].lname == lastname) {
+                address.splice(i, 1);
             }
-        case 3:
-            process.exit();
+        }
 
-        default:
-            console.log("enter options 1 or 2")
     }
-})
+    compare(a, b) {
+        if (a.lname < b.lname)
+            return -1;
+        if (a.lname > b.lname)
+            return 1;
+        return 0;
+    }
+    sort() {
+        console.log(address.sort(this.compare));
+    }
+}
+
+
+
+var ref = new record();
+while (1) {
+    console.log('1.create')
+    console.log('2.open')
+    console.log('3.exit')
+    var choice = prompt('What do u want to do ?')
+    switch (choice) {
+        case '1': var person = prompt('enter number of persons: ');
+            ref.create();
+            break;
+        case '2':   //open1();
+            var boolean = true;
+            while (boolean) {
+                console.log('1.edit')
+                console.log('2.delete')
+                console.log('3.sorting')
+                console.log('4.save')
+                console.log('5.quit')
+                var choice1 = prompt('What do u want to do ?')
+                switch (choice1) {
+                    case '1': ref.edit();
+                        break;
+                    case '2': ref.delete();
+                        break;
+                    case '3': ref.sort();
+                        break;
+                    case '4': ref.save();
+                        break;
+                    case '5': boolean = false;
+                }
+            }
+            break;
+
+        case '3': process.exit();
+
+    }
+}
+
+
